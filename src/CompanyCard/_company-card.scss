@@ -1,0 +1,43 @@
+.company-card{
+  margin: 1rem;
+  border: 1px solid grey;
+  padding-bottom: 1rem;
+  
+  hr{
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+    margin: 0 .5rem 1rem .5rem;
+  }
+  
+  .card-body-upper {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 1rem;
+  }
+
+  .card-body-lower {
+    display: flex;
+    
+    .spacer-div{
+      flex-basis: 25%;
+      justify-content: center;
+    }
+    
+    .content-div{
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      justify-content: flex-start;
+      
+      div{
+        margin-top: 1rem;
+      }
+    }
+  }
+  .show-more-container{
+    color: #0000ffb3;
+    display: flex;
+    justify-content: center;
+  }
+}
