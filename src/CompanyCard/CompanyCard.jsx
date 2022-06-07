@@ -10,21 +10,18 @@ const CompanyCard = ({companyInfo}) => {
         setButtonText(displayBaseData ? 'Show more' : 'Show less')
     }
     
-    const formatMoney = (num) => {
-        if(num > 999999){
-            return (num / 1000000).toFixed(2) + 'M' 
-        } else if (num > 999){
-            return (num / 1000).toFixed(2) + 'k'
-        } else {
-            return num
-        }
+    const formatNumbers = (num) => {
+        if (num > 999999) return (num / 1000000).toFixed(2) + 'M' 
+        if (num > 999) return (num / 1000).toFixed(2) + 'K'
+        
+        return num
     }
     
     const upperRow = (title, data) => {
         return (
             <div>
                 <p>{title}</p>
-                <div><strong>{data}</strong></div>
+                <p><strong>{data}</strong></p>
             </div>
         )
     }
@@ -49,11 +46,10 @@ const CompanyCard = ({companyInfo}) => {
                     <div className={'card-body-lower'}>
                         <div className={'spacer-div'}/>
                         <div className={'content-div'}>
-                            <div><strong>Premium:</strong> ${formatMoney(companyInfo['premium_sum'])}</div>
-                            <div><strong>Participants:</strong> {companyInfo['participants_sum']}</div>
-                            <div><strong>Broker Commission:</strong> ${formatMoney(companyInfo['broker_commission_sum'])}</div>
+                            <div><strong>Premium:</strong> ${formatNumbers(companyInfo['premium_sum'])}</div>
+                            <div><strong>Participants:</strong> {formatNumbers(companyInfo['participants_sum'])}</div>
+                            <div><strong>Broker Commission:</strong> ${formatNumbers(companyInfo['broker_commission_sum'])}</div>
                         </div>
-                        <div className={'spacer-div'}></div>
                     </div>
                 : null
             }
